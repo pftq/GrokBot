@@ -8,6 +8,8 @@ This Windows script will let Grok 4 roam freely on your desktop, controlling you
 The limitation right now is that Grok 4 is very slow (taking up 2 min for a response, video has the wait times truncated), but it is the only intelligent-enough version of Grok on the API that accepts images. This should improve over time from xAI's side though.
 
 # Instructions
+Direct Download (if you're unfamiliar with how to download from Github): 
+http://pftq.com/pq/creations/scripts/csharp/GrokBot1-0_EXE.zip
 1. Unzip the GrokBot1-0_EXE.zip folder
 2. Get an API key from https://x.ai/api
 3. Save the API key to apikey.txt
