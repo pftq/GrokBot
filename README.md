@@ -21,5 +21,4 @@ https://x.com/pftq/status/1950213965256020244
 
 Bonus 2: I almost lost my computer at the end of my test -_-
 https://x.com/WaterflameMusic/status/1950262124397068721
-https://github.com/user-attachments/assets/3d91f6a2-e168-4a35-baca-4616022d3fe2
 
