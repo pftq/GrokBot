@@ -9,9 +9,10 @@ This Windows script will let Grok 4 run perpetually with or without your input, 
 The limitation right now is that Grok 4 is very slow (taking up 2 min for a response, video has the wait times truncated), but it is the only intelligent-enough version of Grok on the API that accepts images. This should improve over time from xAI's side though.
 
 # Instructions
-1. Get an API key from https://x.ai/api
-2. Save the API key to apikey.txt
-3. Unzip the GrokBot1-0_EXE.zip folder and run GrokBot.exe - have fun!
+1. Unzip the GrokBot1-0_EXE.zip folder
+2. Get an API key from https://x.ai/api
+3. Save the API key to apikey.txt
+4. Run GrokBot.exe - have fun!
 
 There are settings available to configure in settings.ini but in general, the default is sufficient. The source code is available for those wanting to customize further or help improve things.
 
