@@ -1,5 +1,4 @@
 # GrokBot
-It's alive! Grok living on your computer with control of the mouse/keyboard.
 
 https://github.com/user-attachments/assets/7bbf93ae-9a15-4f37-bfd1-0443f91cdcaa
 
