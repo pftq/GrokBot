@@ -33,8 +33,15 @@ namespace Bot
         {
             LoadSettings();
             if (File.Exists("apikey.txt"))
-            {
                 apiKey = File.ReadAllText("apikey.txt").Trim();
+            if (apiKey.Trim() == "")
+            {
+                Program.WriteLine("API key needed in apikey.txt");
+                Console.Read();
+                System.Environment.Exit(0);
+            }
+            else
+            {
                 if (apiKey.StartsWith("xai-"))
                 {
                     // Grok API settings
@@ -43,12 +50,7 @@ namespace Bot
                     apiEndpoint = "https://api.x.ai/v1/chat/completions";
                     contextLimit = 250000;
                 }
-                Program.WriteLine( aiName+" API key loaded.");
-            }
-            else
-            {
-                Program.WriteLine("API key needed in apikey.txt");
-                Console.Read();
+                Program.WriteLine(aiName + " API key loaded.");
             }
         }
 
