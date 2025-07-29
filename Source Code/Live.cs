@@ -16,7 +16,7 @@ namespace Bot
     public class Live
     {
         // configure
-        public static bool enableAlerts = true;
+        public static bool enableAlerts = false;
         public static string screenshotDir = "live";
         public static string screenshotFilename = "desktop.png";
         public static bool saveScreenshot = true;

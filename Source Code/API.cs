@@ -20,7 +20,7 @@ namespace Bot
         public static string logFile = "Log_API_Errors.txt";
         public static string cacheFile = "cache";
 
-        public static int contextLimit;
+        public static int contextLimit = 1000000;
         public static int maxTokens = 10000;
         public static int maxNonResponse = 99;
 
