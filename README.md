@@ -8,8 +8,8 @@ The limitation right now is that Grok 4 is very slow (taking up 2 min for a resp
 # Instructions
 1. Get an API key from https://x.ai/api
 2. Save the API key to apikey.txt
-3. Right-click GrokBot.exe - have fun!
+3. Unzip the GrokBot1-0_EXE.zip folder and run GrokBot.exe - have fun!
 
-There are settings available to configure in settings.ini but in general, the default is sufficient.
+There are settings available to configure in settings.ini but in general, the default is sufficient. The source code is available for those wanting to customize further or help improve things.
 
 Bonus: You can use a ChatGPT API key as well and it'll automatically use ChatGPT, but ChatGPT is nowhere near as capable, struggling even just to click the Start menu.
