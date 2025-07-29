@@ -9,7 +9,7 @@ The limitation right now is that Grok 4 is very slow (taking up 2 min for a resp
 
 # Instructions
 Direct Download (if you're unfamiliar with how to download from Github): 
-http://pftq.com/pq/creations/scripts/csharp/GrokBot1-0_EXE.zip
+https://www.pftq.com/pq/creations/scripts/csharp/GrokBot1-0_EXE.zip
 1. Unzip the GrokBot1-0_EXE.zip folder
 2. Get an API key from https://x.ai/api
 3. Save the API key to apikey.txt
