@@ -17,7 +17,7 @@ Direct Download: https://github.com/pftq/GrokBot/releases/tag/1.0
 There are settings available to configure in settings.ini but in general. For example, if Grok is running off too long without asking for your input, you can set maxNonResponse to a smaller number to force it to check in once in a while (although it might be better to just ask it to check in more frequently instead to not interrupt multi-step tasks). The source code is available for those wanting to customize further or help improve things.
 
 Bonus: You can use a ChatGPT API key as well and it'll automatically use ChatGPT, but ChatGPT is nowhere near as capable, struggling even just to click the Start menu.
-https://x.com/pftq/status/1950213965256020244
+https://x.com/pftq/status/1951492467024707663
 
 Bonus 2: I almost lost my computer at the end of my test -_-
 https://x.com/WaterflameMusic/status/1950262124397068721
