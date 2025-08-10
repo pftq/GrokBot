@@ -11,6 +11,8 @@ using System.Net;
 using System.Text.RegularExpressions;
 using ProtoBuf;
 using System.Drawing.Imaging;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Bot
 {
@@ -24,9 +26,13 @@ namespace Bot
         public static int maxTokens = 10000;
         public static int maxNonResponse = 99;
 
+
+        public static string grokModel = "grok-4";
+        public static string openAIModel = "gpt-5";
+
         // ChatGPT API settings
         public static string aiName = "ChatGPT";
-        public static string aiModel = "gpt-4.1";
+        public static string aiModel = openAIModel;
         public static string apiKey = "";
         public static string apiEndpoint = "https://api.openai.com/v1/chat/completions";
         public static void Load()
@@ -46,11 +52,12 @@ namespace Bot
                 {
                     // Grok API settings
                     aiName = "Grok";
-                    aiModel = "grok-4";
+                    aiModel = grokModel;
                     apiEndpoint = "https://api.x.ai/v1/chat/completions";
                     contextLimit = 250000;
                 }
                 Program.WriteLine(aiName + " API key loaded.");
+                Program.WriteLine("Model: "+aiModel);
             }
         }
 
@@ -80,6 +87,8 @@ namespace Bot
                 if (settings.ContainsKey("maxClickDelay")) Live.maxClickDelay = int.Parse(settings["maxClickDelay"]);
                 if (settings.ContainsKey("enableAlerts")) Live.enableAlerts = bool.Parse(settings["enableAlerts"]);
                 if (settings.ContainsKey("saveScreenshot")) Live.enableAlerts = bool.Parse(settings["saveScreenshot"]);
+                if (settings.ContainsKey("grokModel")) grokModel = settings["grokModel"];
+                if (settings.ContainsKey("openAIModel")) openAIModel = settings["openAIModel"];
                 GenerateSettings(settingsFile);
             }
             catch (Exception ex)
@@ -92,6 +101,8 @@ namespace Bot
         {
             var defaultSettings = new List<string>
             {
+                "grokModel="+grokModel,
+                "openAIModel="+openAIModel,
                 "reactionTimeMS="+reactionTimeMS,
                 "maxTokens="+maxTokens,
                 "maxNonResponse="+maxNonResponse,
@@ -126,11 +137,13 @@ namespace Bot
 
         public static LiveActions GetResponse(string prompt)
         {
+
             prompt = "The user says this: \"" + prompt + "\"\n\n";
-            using (var client = new CustomWebClient())
+            using (var httpClient = new HttpClient())
             {
-                client.Headers.Add("Authorization", "Bearer " + apiKey);
-                client.Headers.Add("Content-Type", "application/json");
+                System.Net.ServicePointManager.SecurityProtocol = (System.Net.SecurityProtocolType)3072;
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", apiKey);
                 System.Net.ServicePointManager.SecurityProtocol = (System.Net.SecurityProtocolType)3072;
 
                 StringBuilder fullPrompt = new StringBuilder();
@@ -175,7 +188,7 @@ namespace Bot
                     max_tokens = maxTokens
                 };
                 string json = JsonConvert.SerializeObject(requestBody);
-
+ 
                 using (MemoryStream ms = new MemoryStream())
                 {
                     Live.GetScreen().Save(ms, ImageFormat.Png);
@@ -211,10 +224,20 @@ namespace Bot
 
                 //LogAPI(json);
 
+                if (aiModel==openAIModel && !openAIModel.Contains("gpt-4"))
+                {
+                    json = json.Replace("\"max_tokens\"", "\"max_completion_tokens\"");
+                    json = json.Replace("\"temperature\":0.0", "\"temperature\":1.0");
+                }
+
                 string responseContent = "";
                 try
                 {
-                    string responseJson = client.UploadString(apiEndpoint, "POST", json);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    HttpResponseMessage response = httpClient.PostAsync(apiEndpoint, content)
+            .GetAwaiter().GetResult();
+
+                    string responseJson = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                     //LogAPI(responseJson);
 
                     JObject deserialized = JObject.Parse(responseJson);
@@ -238,7 +261,7 @@ namespace Bot
                 }
             }
 
-
+            
         }
 
         private static void LogAPI(string s)
