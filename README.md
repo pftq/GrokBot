@@ -5,7 +5,7 @@ https://github.com/user-attachments/assets/7bbf93ae-9a15-4f37-bfd1-0443f91cdcaa
 # Summary
 This Windows script will let Grok 4 (or ChatGPT 5) roam freely on your desktop, controlling your mouse and keyboard (even without your input). You can ask it to do pretty much anything, and it'll at least try (but it is able to one-shot opening programs, typing into fields, doing system commands, etc). Grok will also retain its memories even if you close and reopen it!
 
-The limitation right now is that Grok 4 is very slow (video has the wait times truncated), but it is the only intelligent-enough version of Grok on the API that accepts images. This should hopefully improve over time from xAI's side though.
+The limitation right now is that these AIs are very slow (video has the wait times truncated). This should hopefully improve over time.
 
 Despite the name, the script works with both Grok and ChatGPT and will automatically switch depending on the API Key.  If you want a specific model, you can specify that (and other settings) in the settings.ini
 
