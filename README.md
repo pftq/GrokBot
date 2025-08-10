@@ -12,7 +12,7 @@ Despite the name, the script works with both Grok and ChatGPT and will automatic
 # Instructions
 Direct Download: https://github.com/pftq/GrokBot/releases/tag/1.1
 1. Unzip the GrokBot1-1_EXE.zip folder
-2. Get an API key from https://x.ai/api
+2. Get an API key. (Grok https://x.ai/api or ChatGPT https://platform.openai.com/api-keys )
 3. Save the API key to apikey.txt
 4. Right-click GrokBot.exe, go to Properties > Compatibility > Change High DPI > Check "Override High DPI Scaling Behavior" > Select "Application"
 5. Right-click and run GrokBot.exe as Administrator  - have fun!
