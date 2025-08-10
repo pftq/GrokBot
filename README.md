@@ -7,7 +7,7 @@ This Windows script will let Grok 4 (or ChatGPT 5) roam freely on your desktop, 
 
 The limitation right now is that these AIs are very slow (video has the wait times truncated). This should hopefully improve over time.
 
-Despite the name, the script works with both Grok and ChatGPT and will automatically switch depending on the API Key.  If you want a specific model, you can specify that (and other settings) in the settings.ini
+Despite the name, the script works with both Grok and ChatGPT and will automatically switch depending on the API Key (it was originally made for Grok before I realized they had the same API structure).  If you want a specific model, you can specify that (and other settings) in the settings.ini
 
 # Instructions
 Direct Download: https://github.com/pftq/GrokBot/releases/tag/1.1
