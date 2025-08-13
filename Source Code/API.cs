@@ -231,13 +231,14 @@ namespace Bot
                 }
 
                 string responseContent = "";
+                string responseJson = "";
                 try
                 {
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     HttpResponseMessage response = httpClient.PostAsync(apiEndpoint, content)
             .GetAwaiter().GetResult();
 
-                    string responseJson = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                    responseJson = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
                     //LogAPI(responseJson);
 
                     JObject deserialized = JObject.Parse(responseJson);
@@ -255,7 +256,7 @@ namespace Bot
                 catch (Exception ex)
                 {
                     Program.WriteLine(aiModel + " API error: " + ex.Message);
-                    LogAPI("Error with API JSON: " + ex.Message + "\n\n" + responseContent);
+                    LogAPI("Error with API JSON: " + ex.Message + "\n\nRequest: "+json+"\n\nResponse: " + responseJson);
                     return null;
 
                 }
