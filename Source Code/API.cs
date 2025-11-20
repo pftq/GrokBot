@@ -27,8 +27,8 @@ namespace Bot
         public static int maxNonResponse = 99;
 
 
-        public static string grokModel = "grok-4-fast";
-        public static string openAIModel = "gpt-5";
+        public static string grokModel = "grok-4-1-fast";
+        public static string openAIModel = "gpt-5.1";
 
         // ChatGPT API settings
         public static string aiName = "ChatGPT";
